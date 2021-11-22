@@ -63,6 +63,21 @@ public class App
 			Graphics2D g2d = cb.createGraphics(pageSize.getWidth(), pageSize.getHeight());
 			instance.getInfo().put(PdfName.CREATOR, new PdfString(Document.getVersion()));
 
+			cb.saveState();
+			cb.setColorFill(new Color(255,0,0,50));
+			cb.setColorStroke(Color.blue);
+			cb.rectangle(100,1000,75,150);
+			cb.fillStroke();
+			cb.restoreState();
+
+			cb.saveState();
+			cb.setColorFill(new Color(255,0,0,50));
+			cb.setColorStroke(Color.pink);
+			cb.rectangle(100,1300,75,150);
+			cb.fillStroke();
+			cb.restoreState();
+			document.add(new Paragraph("Hello World"));
+			
 			document.add(new Paragraph("Hello World"));
 			//Code from requestor that should trip the issue but causes errors
 			/*
